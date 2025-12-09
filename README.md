@@ -88,3 +88,4 @@ While implementing the pipeline trigger, I initially wrote:
 if name == "_main_":
     main()
 ```
+![erorr](https://github.com/user-attachments/assets/fa1844aa-0e5a-4017-9845-190185256760)
