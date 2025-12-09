@@ -78,4 +78,13 @@ _Validation:_ violin plot comparing outcome groups
 
 - All personal patient identifiers removed.
 - Results communicated cautiously to avoid clinical bias.
-- Dataset handled only for analytical—not diagnostic—purposes.
+- Dataset handled only for analytical—not diagnostic—purposes
+
+## Debugging Reflection — Naming Error in Pipeline Trigger
+
+While implementing the pipeline trigger, I initially wrote:
+
+```python
+if name == "_main_":
+    main()
+```
