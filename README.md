@@ -1,72 +1,81 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# 📌 Emergency Room Analytics Project
 
-## Template Instructions
+## 🏥 Project Overview
 
-Welcome,
+This project analyzes Emergency Room (ER) patient patterns to understand waiting time behaviors, referral impacts, seasonal demand, and admission outcomes.  
+The insights support data-driven operational planning and predictive modelling.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## 📌 Business Requirements
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+- Identify factors affecting ER waiting time.
+- Understand seasonal and time-based demand changes.
+- Compare walk-in versus referred patient behaviors.
+- Support hospital planning using analytical insights.
 
-## How to use this repo
+## 📌 Hypotheses & Validation Approach
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+### 🔹 Hypothesis 1
 
-1. Copy the URL of your repository to your clipboard.
+Older patients experience longer waiting times.  
+_Validation:_ grouped age analysis + boxplots.
 
-1. In VS Code, select **File** -> **Open Folder**.
+### 🔹 Hypothesis 2
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+Referral type influences waiting time.  
+_Validation:_ swarm/violin plot comparing walk-ins vs referred cases.
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open the terminal.
+### 🔹 Hypothesis 3
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+ER demand varies seasonally across the year.  
+_Validation:_ monthly trend line analysis.
 
-1. In VS Code, select **File** > **Open Folder** again.
+### 🔹 Hypothesis 4
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+Admitted patients wait longer than discharged patients.  
+_Validation:_ violin plot comparing outcome groups
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+### Dataset Limitations
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+1. _High Missingness in Referral Source_
 
-1. Choose **Venv** from the dropdown list.
+   The Department Referral field contained 5,400 missing records.  
+   These were imputed with "Unknown" to preserve dataset size, but this reduces the ability  
+   to confidently compare waiting times across referral pathways.
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+2. _Incomplete Satisfaction Data_
 
-1. **DO NOT** click the box next to `requirements.txt`, as you need to do more steps before you can install your dependencies. Click **OK**.
+   The Patient Satisfaction Score variable had 6,699 missing values.  
+   Although imputed, the absence of true responses weakens any conclusions about  
+   patient experience or satisfaction-related insights.
 
-1. You will see a `.venv` folder appear in the file explorer pane to show that the virtual environment has been created.
+3. _Age Distribution Bias_
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+   No patients below one year of age appeared in the dataset, suggesting  
+   a potential sampling gap. This reduces applicability of findings to paediatric populations  
+   or emergency use cases involving infants.
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+4. _Lack of Triage Severity or Clinical Priority Indicator_
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+   The dataset does not include information about patient acuity or triage level,  
+   which is a critical driver of queuing and treatment priority.  
+   This omission prevents deeper causal analysis into whether waiting time differences  
+   are driven by medical urgency rather than demographic or timing effects.
 
- ```console
- pip3 install -r requirements.txt
- ```
+5. _Imbalanced Referral Patterns and Limited Satisfaction Signal_
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+   The dominance of walk-in / unknown referral cases combined with weak satisfaction data  
+   limits the strength of comparisons between referral-based and outcome-based groups.  
+   While imputations preserved volume, they may distort relationships between referral behaviour,  
+   perceived quality, and actual waiting experience.
 
-1. Click the **kernel** button and choose **Python Environments**.
+6. _Unknown Imputation Impact_
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+   Imputation strategies (e.g., filling "Unknown" values) retained dataset completeness  
+   but may reduce model accuracy or mask naturally occurring patterns—especially when comparing  
+   waiting time behaviour or satisfaction trends among different patient pathways.
 
-```console
-! python --version
-```
+## 📌 Ethical Considerations
 
-## Deployment Reminders
-
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version that closest matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+- All personal patient identifiers removed.
+- Results communicated cautiously to avoid clinical bias.
+- Dataset handled only for analytical—not diagnostic—purposes.
