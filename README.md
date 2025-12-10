@@ -1,9 +1,15 @@
 # 📌 Emergency Room Analytics Project
 
-## 🏥 Project Overview
+## Project Overview
 
 This project analyzes Emergency Room (ER) patient patterns to understand waiting time behaviors, referral impacts, seasonal demand, and admission outcomes.  
 The insights support data-driven operational planning and predictive modelling.
+
+### Extended Project Objective
+
+In addition to analyzing ER patient behaviour and waiting time patterns, this project aims to build a predictive machine learning component that classifies patients into two outcomes — admitted (1) or not admitted (0).
+
+The objective is to move beyond descriptive insights and provide a forward-looking capability that helps anticipate admission outcomes based on patient features such as age, arrival characteristics, and waiting behaviour.
 
 ## 📌 Business Requirements
 
@@ -11,6 +17,11 @@ The insights support data-driven operational planning and predictive modelling.
 - Understand seasonal and time-based demand changes.
 - Compare walk-in versus referred patient behaviors.
 - Support hospital planning using analytical insights.
+
+### Additional Business Requirement
+
+- Provide a binary machine learning model that predicts whether a patient is likely to be admitted or discharged (1 vs 0), based on features available at arrival.  
+  This supports planning for bed availability, triage prioritization, and operational readiness in the Emergency Room.
 
 ## 📌 Hypotheses & Validation Approach
 
@@ -88,4 +99,5 @@ While implementing the pipeline trigger, I initially wrote:
 if name == "_main_":
     main()
 ```
+
 ![erorr](https://github.com/user-attachments/assets/fa1844aa-0e5a-4017-9845-190185256760)
