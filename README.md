@@ -62,6 +62,7 @@ An _Area Chart_ was initially planned to explore age-related trends, and it was 
 - Y-axis → Average Waiting Time
 
 This chart format was chosen because it shows both individual fluctuation and overall pattern visibility.
+![overveiw](https://github.com/user-attachments/assets/f16fee09-b8ed-4f6d-baf7-818c12e9adc1)
 
 ### Dataset Limitations
 
