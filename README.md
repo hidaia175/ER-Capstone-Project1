@@ -79,6 +79,21 @@ This page currently contains:
 
 This page provides a simple high-level view of how waiting differs across genders and age trends.
 ![page 1](https://github.com/user-attachments/assets/6a2653e3-5ad4-4ade-b6d9-45e4536509bb)
+
+## 🐞 Unfixed Bugs
+
+While building the dashboard in Power BI, I faced an issue related to adding a new visual (Plot visual) from the marketplace through *Get more visuals*.  
+Although the installation completed successfully, the icon did not appear clearly in the visualization panel, which prevented using it in the design.
+
+### 🔹 Why the Issue Remained Unresolved
+- The location of the installed visual was not obvious in the Power BI interface.
+- Manually searching inside the panel did not help in locating it.
+- Time was prioritized for completing the core dashboard structure rather than deeply investigating the icon location.
+
+### 🔹 How I Handled the Issue
+- I continued using the default built-in visuals in Power BI to complete the required design.
+- I plan to retry installing the visual again later or check visibility after restarting Power BI or updating plugins.
+- 
 ## Development Roadmap
 
 ### 🔹 Challenges Faced
