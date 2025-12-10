@@ -47,22 +47,39 @@ _Validation:_ violin plot comparing outcome groups
 
 ## 🖥 Dashboard Design
 
-### 🔹 Page 1 — Overview
 
-The dashboard currently contains one completed page titled _“Overview”_.
+Power BI was used to convert analytical findings into *interactive visual insights*.  
+The dashboard allows decision-makers to:
 
-This page was designed to give a high-level snapshot of patient waiting time trends in the emergency department.  
-At this early stage of development, its purpose is to quickly highlight whether age appears to influence waiting duration.
+- Understand waiting trends *quickly and visually*
+- Compare differences across patient groups
+- Support discussions and hospital planning using *data-driven evidence*
 
-#### 📊 Visual Used
+Power BI was chosen because it provides:
 
-An _Area Chart_ was initially planned to explore age-related trends, and it was implemented to display:
+✔ Easy visual storytelling  
+✔ Clear interpretation for non-technical audiences  
+✔ Professional presentation suitable for academic and hospital settings
 
-- X-axis → Patient Age
-- Y-axis → Average Waiting Time
+---
 
-This chart format was chosen because it shows both individual fluctuation and overall pattern visibility.
-![overveiw](https://github.com/user-attachments/assets/f16fee09-b8ed-4f6d-baf7-818c12e9adc1)
+## 📌 Dashboard Progress
+
+### ✔ Page 1 — Overview (Completed)
+
+This page currently contains:
+
+- *Pie Chart – Waiting Time by Patient Gender*  
+  Shows waiting time distribution across male, female, and non-classified patients.
+
+- *Line Chart – Waiting Time Trend by Age*  
+  Displays how average waiting time varies across different age ranges.
+
+- *Formatted title and layout styling*
+
+This page provides a simple high-level view of how waiting differs across genders and age trends.
+![page 1](https://github.com/user-attachments/assets/6a2653e3-5ad4-4ade-b6d9-45e4536509bb)
+
 
 ### Dataset Limitations
 
