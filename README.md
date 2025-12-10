@@ -80,6 +80,17 @@ This page currently contains:
 This page provides a simple high-level view of how waiting differs across genders and age trends.
 ![page 1](https://github.com/user-attachments/assets/6a2653e3-5ad4-4ade-b6d9-45e4536509bb)
 
+### 🔹 Page 2 — Patient Demographics
+
+This page mirrors the analysis done in the Jupyter notebook and includes:
+
+- *Patient Age Distribution* — shows how ages are spread across patients.
+- *Gender Distribution Pie Chart* — visualizes male, female, and unclassified proportions.
+- *Referral Source Breakdown* — shows where patients were referred from.
+
+![page 2](https://github.com/user-attachments/assets/6dfa9487-8b4e-4385-a3f2-d8cccee80933)
+These visuals help understand who visits the ER most frequently and from which sources.
+
 ## 🐞 Unfixed Bugs
 
 While building the dashboard in Power BI, I faced an issue related to adding a new visual (Plot visual) from the marketplace through *Get more visuals*.  
