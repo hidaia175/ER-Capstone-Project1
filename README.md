@@ -45,6 +45,24 @@ _Validation:_ monthly trend line analysis.
 Admitted patients wait longer than discharged patients.  
 _Validation:_ violin plot comparing outcome groups
 
+## 🖥 Dashboard Design
+
+### 🔹 Page 1 — Overview
+
+The dashboard currently contains one completed page titled _“Overview”_.
+
+This page was designed to give a high-level snapshot of patient waiting time trends in the emergency department.  
+At this early stage of development, its purpose is to quickly highlight whether age appears to influence waiting duration.
+
+#### 📊 Visual Used
+
+An _Area Chart_ was initially planned to explore age-related trends, and it was implemented to display:
+
+- X-axis → Patient Age
+- Y-axis → Average Waiting Time
+
+This chart format was chosen because it shows both individual fluctuation and overall pattern visibility.
+
 ### Dataset Limitations
 
 1. _High Missingness in Referral Source_
