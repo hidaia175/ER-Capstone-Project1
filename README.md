@@ -79,6 +79,25 @@ This page currently contains:
 
 This page provides a simple high-level view of how waiting differs across genders and age trends.
 ![page 1](https://github.com/user-attachments/assets/6a2653e3-5ad4-4ade-b6d9-45e4536509bb)
+## Development Roadmap
+
+### 🔹 Challenges Faced
+During dashboard development, I struggled with Power BI visuals not appearing correctly on the canvas.  
+Some charts were added but were too small or hidden, making it seem like nothing was working.  
+Additionally, formatting elements such as text boxes and visual resizing required trial and error to align properly.
+
+### 🔹 Strategies Used to Overcome Them
+I resolved these issues by:
+- Re-adding visuals and manually resizing them.
+- Using formatting options to adjust visibility, borders, and alignment.
+- Exploring built-in AI Q&A visuals to automate chart generation where possible.
+- Iteratively testing placements and layout until the dashboard became clean and readable.
+
+This process helped me improve troubleshooting and visual design skills.
+
+### 🔹 Skills I Plan to Learn Next
+Based on the dashboard experience, I plan to:
+- Learn more advanced Power BI formatting & interactivity.
 
 
 ### Dataset Limitations
