@@ -160,7 +160,7 @@ Based on the dashboard experience, I plan to:
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 
 
-- ### 🔹 Strategies Used to Overcome Them
+### 🔹 Strategies Used to Overcome Them
 To ensure compatibility with all scikit-learn versions, I replaced the above code with a manual RMSE calculation:
 mse = mean_squared_error(y_test, y_pred)
 rmse = np.sqrt(mse)
@@ -170,7 +170,7 @@ rmse = np.sqrt(mse)
 - Reading the exact error message helps identify the root cause.  
 - Understanding that RMSE = sqrt(MSE) allowed me to implement a manual fix.  
 - Debugging is a normal and important part of the machine learning workflow.
-- ## Deployment
+## Deployment
 
 The project’s interactive dashboard was deployed using *Power BI Service*.
 
