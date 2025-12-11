@@ -152,7 +152,24 @@ This process helped me improve troubleshooting and visual design skills.
 ### 🔹 Skills I Plan to Learn Next
 Based on the dashboard experience, I plan to:
 - Learn more advanced Power BI formatting & interactivity.
-- 
+- ### 🔹 Challenges Faced
+- While evaluating the regression model, I encountered an error when trying to compute the RMSE using:
+![erorr](https://github.com/user-attachments/assets/a4c611b6-21f4-41bd-915d-d3ae709684ad)
+
+```python
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+
+
+- ### 🔹 Strategies Used to Overcome Them
+To ensure compatibility with all scikit-learn versions, I replaced the above code with a manual RMSE calculation:
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+##  What I Learned
+
+- Different library versions may support different parameters.  
+- Reading the exact error message helps identify the root cause.  
+- Understanding that RMSE = sqrt(MSE) allowed me to implement a manual fix.  
+- Debugging is a normal and important part of the machine learning workflow.
 - ## Deployment
 
 The project’s interactive dashboard was deployed using *Power BI Service*.
