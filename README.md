@@ -156,65 +156,6 @@ Based on the dashboard experience, I plan to:
 - While evaluating the regression model, I encountered an error when trying to compute the RMSE using:
 ![erorr](https://github.com/user-attachments/assets/a4c611b6-21f4-41bd-915d-d3ae709684ad)
 
-
-
-- Patient Age  
-- Patient Gender  
-- Department Referral  
-- Patient Admission Flag (admitted vs discharged)
-
-This model is *exploratory* and is used mainly to understand how well we can
-predict waiting time from the available data.
-
-### Modelling Approach
-
-I used a RandomForestRegressor inside a scikit-learn Pipeline:
-
-- *Preprocessing*
-  - Numerical features (Patient Age, Patient Waittime when used as input in
-    earlier experiments) were scaled using StandardScaler.
-  - Categorical features (Patient Gender, Department Referral,
-    Patient Admission Flag) were one-hot encoded using OneHotEncoder.
-- *Model*
-  - RandomForestRegressor(n_estimators=200, random_state=42)
-
-The data was split into *80% training* and *20% test* using
-train_test_split with a fixed random_state for reproducibility.
-
-### Evaluation Metrics
-
-The model was evaluated on the test set using common regression metrics:
-
-- *Mean Absolute Error (MAE): ~13.47 minutes*  
-- *Root Mean Squared Error (RMSE): ~15.96 minutes*  
-- *R² Score: -0.188*
-
-*Interpretation:*
-
-- MAE and RMSE indicate that, on average, the model is off by about 13–16 minutes
-  when predicting ER waiting time.
-- The *negative R² score* means that this baseline model performs worse than a
-  very simple baseline that just predicts the *mean waiting time for all patients*.
-  This suggests that the current set of features does not explain the variability
-  in waiting times very well.
-
-Despite the weak performance, the experiment is still useful: it shows that
-waiting time in this dataset is highly variable and likely influenced by other
-operational factors that are not captured in the current features.
-
-### Visualising Model Performance
-
-To better understand the model behaviour, I plotted **Actual vs Predicted
-waiting times**:
-
-- Points close to the diagonal line (y = x) represent good predictions.
-- The points are widely scattered, confirming that the model struggles to
-  capture the underlying pattern in waiting times.
-
-These plots are included in the notebook and can be referenced in the report.
-
-![readme](https://github.com/user-attachments/assets/569d7860-e7bd-4cee-bf6d-1f8a8c3d498e)
-
 ```python
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 ```
@@ -353,6 +294,8 @@ waiting times**:
 These plots are included in the notebook and can be referenced in the report.
 
 ![readme](https://github.com/user-attachments/assets/569d7860-e7bd-4cee-bf6d-1f8a8c3d498e)
+
+
 
 
 
