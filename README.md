@@ -220,7 +220,6 @@ rmse = mean_squared_error(y_test, y_pred, squared=False)
 ```
 
 ### 🔹 Strategies Used to Overcome Them
-
 To ensure compatibility with all scikit-learn versions, I replaced the above code with a manual RMSE calculation:
 
 ```python
@@ -235,8 +234,6 @@ rmse = np.sqrt(mse)
 - Understanding that RMSE = sqrt(MSE) allowed me to implement a manual fix.  
 - Debugging is a normal and important part of the machine learning workflow.
 
----
-
 ## Deployment
 
 The project’s interactive dashboard was deployed using *Power BI Service*.
@@ -247,9 +244,7 @@ You can access the live Power BI report through the following link:
 
 The dashboard is published to the user workspace and includes all report pages, visuals, and insights created as part of the project.
 
----
-
-## Dataset Limitations
+### Dataset Limitations
 
 1. _High Missingness in Referral Source_
 
@@ -260,89 +255,104 @@ The dashboard is published to the user workspace and includes all report pages, 
 2. _Incomplete Satisfaction Data_
 
    The Patient Satisfaction Score variable had 6,699 missing values.  
-   Although imputed, the absence of true responses weakens conclusions about  
+   Although imputed, the absence of true responses weakens any conclusions about  
    patient experience or satisfaction-related insights.
 
 3. _Age Distribution Bias_
 
-   No patients below one year of age appeared in the dataset, suggesting a sampling gap.  
-   This reduces applicability of findings to paediatric cases.
+   No patients below one year of age appeared in the dataset, suggesting  
+   a potential sampling gap. This reduces applicability of findings to paediatric populations  
+   or emergency use cases involving infants.
 
 4. _Lack of Triage Severity or Clinical Priority Indicator_
 
-   Missing acuity/triage levels prevents deeper causal interpretation.
+   The dataset does not include information about patient acuity or triage level,  
+   which is a critical driver of queuing and treatment priority.  
+   This omission prevents deeper causal analysis into whether waiting time differences  
+   are driven by medical urgency rather than demographic or timing effects.
 
-5. _Imbalanced Referral Patterns_
+5. _Imbalanced Referral Patterns and Limited Satisfaction Signal_
 
-   Many walk-in/unknown referrals weaken comparative analysis between referral groups.
+   The dominance of walk-in / unknown referral cases combined with weak satisfaction data  
+   limits the strength of comparisons between referral-based and outcome-based groups.  
+   While imputations preserved volume, they may distort relationships between referral behaviour,  
+   perceived quality, and actual waiting experience.
 
 6. _Unknown Imputation Impact_
 
-   Filling "Unknown" preserves completeness but may distort natural behaviour patterns.
-
----
+   Imputation strategies (e.g., filling "Unknown" values) retained dataset completeness  
+   but may reduce model accuracy or mask naturally occurring patterns—especially when comparing  
+   waiting time behaviour or satisfaction trends among different patient pathways.
 
 ## 📌 Ethical Considerations
 
 - All personal patient identifiers removed.  
-- Results interpreted cautiously to avoid clinical bias.  
-- Dataset used strictly for analytical — not diagnostic — purposes.
-
----
+- Results communicated cautiously to avoid clinical bias.  
+- Dataset handled only for analytical—not diagnostic—purposes.
 
 ## 4. Modelling & Prediction
 
 ### Objective
 
-Build a baseline regression model to predict  
-*patient waiting time (minutes)* using:
+The goal of this section was to build a simple baseline regression model that
+predicts *patient waiting time (in minutes)* using a few key features:
 
-- Age  
-- Gender  
+- Patient Age  
+- Patient Gender  
 - Department Referral  
-- Admission Flag  
+- Patient Admission Flag (admitted vs discharged)
+
+This model is *exploratory* and is used mainly to understand how well we can
+predict waiting time from the available data.
 
 ### Modelling Approach
 
-Pipeline included preprocessing + model:
+I used a RandomForestRegressor inside a scikit-learn Pipeline:
 
-- **Preprocessing**
-  - Numerical features scaled (StandardScaler)  
-  - Categorical features encoded (OneHotEncoder)
-- **Model**
+- *Preprocessing*
+  - Numerical features (Patient Age, Patient Waittime when used as input in
+    earlier experiments) were scaled using StandardScaler.
+  - Categorical features (Patient Gender, Department Referral,
+    Patient Admission Flag) were one-hot encoded using OneHotEncoder.
+- *Model*
   - RandomForestRegressor(n_estimators=200, random_state=42)
 
-Train/test split: **80% / 20%**
-
----
+The data was split into *80% training* and *20% test* using
+train_test_split with a fixed random_state for reproducibility.
 
 ### Evaluation Metrics
 
+The model was evaluated on the test set using common regression metrics:
+
 - *Mean Absolute Error (MAE): ~13.47 minutes*  
 - *Root Mean Squared Error (RMSE): ~15.96 minutes*  
-- *R² Score: -0.188*  
+- *R² Score: -0.188*
 
-**Interpretation**
+*Interpretation:*
 
-- Model error ≈ 13–16 mins  
-- Negative R² → model performs worse than predicting the mean  
-- Waiting time variance likely caused by external operational factors  
+- MAE and RMSE indicate that, on average, the model is off by about 13–16 minutes
+  when predicting ER waiting time.
+- The *negative R² score* means that this baseline model performs worse than a
+  very simple baseline that just predicts the *mean waiting time for all patients*.
+  This suggests that the current set of features does not explain the variability
+  in waiting times very well.
 
----
+Despite the weak performance, the experiment is still useful: it shows that
+waiting time in this dataset is highly variable and likely influenced by other
+operational factors that are not captured in the current features.
 
 ### Visualising Model Performance
 
-Plotted **Actual vs Predicted** waiting times.
+To better understand the model behaviour, I plotted **Actual vs Predicted
+waiting times**:
 
-- Points close to *y = x* → good predictions  
-- Wide scatter → model struggles to capture pattern  
+- Points close to the diagonal line (y = x) represent good predictions.
+- The points are widely scattered, confirming that the model struggles to
+  capture the underlying pattern in waiting times.
 
-Plots included in notebook.
+These plots are included in the notebook and can be referenced in the report.
 
 ![readme](https://github.com/user-attachments/assets/569d7860-e7bd-4cee-bf6d-1f8a8c3d498e)
-
-
-
 
 
 
