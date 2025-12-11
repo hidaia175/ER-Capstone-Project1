@@ -90,6 +90,34 @@ This page mirrors the analysis done in the Jupyter notebook and includes:
 
 ![page 2](https://github.com/user-attachments/assets/6dfa9487-8b4e-4385-a3f2-d8cccee80933)
 These visuals help understand who visits the ER most frequently and from which sources.
+### Hypothesis 1 Visualization  
+This image represents the visual output for Hypothesis 1 in Power BI.
+![Hypothises 1](https://github.com/user-attachments/assets/895a2cf9-dcd8-416e-935e-d89b0e6fcf56)
+
+### Hypothesis 2 Visualization  
+This image represents the visual output for Hypothesis 2 in Power BI.
+
+![Hypothises 2](https://github.com/user-attachments/assets/624a40f9-cdc7-488c-bf3d-84f68b2a0682)
+### 🔹 Hypothesis 3 — Seasonality Analysis
+
+To analyze whether ER demand varies across months, a new *Month column* was created in Power BI.
+
+📌 *What was done?*
+- The original admission date field was transformed using Extract → Month in the Power Query editor.
+- This generated a numerical Month attribute (1–12) representing the month of patient admission.
+
+📌 *Why was this needed?*
+- Adding this field allowed grouping patient counts by month.
+- It enabled visualizing seasonal trends and confirming whether mid-year months experienced higher ER demand.
+
+➡ This new field was then used as the X-axis in a line chart to show monthly demand variation.
+![add month column](https://github.com/user-attachments/assets/8588d457-93df-41cf-9763-55090b038823)
+![Hypothesis 3](https://github.com/user-attachments/assets/fab50008-18b4-4ed6-b8cc-fa2532d4770a)
+### Hypothesis 4 Visualization  
+This chart compares waiting time for admitted vs discharged patients.
+
+![Hypothesis 4](https://github.com/user-attachments/assets/db9f9f2d-41c7-4bfb-8bc3-5ecd1d1675fd)
+
 
 ## 🐞 Unfixed Bugs
 
@@ -124,6 +152,16 @@ This process helped me improve troubleshooting and visual design skills.
 ### 🔹 Skills I Plan to Learn Next
 Based on the dashboard experience, I plan to:
 - Learn more advanced Power BI formatting & interactivity.
+- 
+- ## Deployment
+
+The project’s interactive dashboard was deployed using *Power BI Service*.
+
+You can access the live Power BI report through the following link:
+
+🔗 **[ER Waiting Time Dashboard](https://app.powerbi.com/groups/me/reports/f5137f9e-f640-47c1-9e17-209d69b634de/f9ede44134280a65ce97?experience=power-bi)**
+
+The dashboard is published to the user workspace and includes all report pages, visuals, and insights created as part of the project.
 
 
 ### Dataset Limitations
