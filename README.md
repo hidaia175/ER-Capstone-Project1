@@ -156,83 +156,7 @@ Based on the dashboard experience, I plan to:
 - While evaluating the regression model, I encountered an error when trying to compute the RMSE using:
 ![erorr](https://github.com/user-attachments/assets/a4c611b6-21f4-41bd-915d-d3ae709684ad)
 
-```python
-rmse = mean_squared_error(y_test, y_pred, squared=False)
 
-
-### 🔹 Strategies Used to Overcome Them
-To ensure compatibility with all scikit-learn versions, I replaced the above code with a manual RMSE calculation:
-mse = mean_squared_error(y_test, y_pred)
-rmse = np.sqrt(mse)
-##  What I Learned
-
-- Different library versions may support different parameters.  
-- Reading the exact error message helps identify the root cause.  
-- Understanding that RMSE = sqrt(MSE) allowed me to implement a manual fix.  
-- Debugging is a normal and important part of the machine learning workflow.
-## Deployment
-
-The project’s interactive dashboard was deployed using *Power BI Service*.
-
-You can access the live Power BI report through the following link:
-
-🔗 **[ER Waiting Time Dashboard](https://app.powerbi.com/groups/me/reports/f5137f9e-f640-47c1-9e17-209d69b634de/f9ede44134280a65ce97?experience=power-bi)**
-
-The dashboard is published to the user workspace and includes all report pages, visuals, and insights created as part of the project.
-
-
-### Dataset Limitations
-
-1. _High Missingness in Referral Source_
-
-   The Department Referral field contained 5,400 missing records.  
-   These were imputed with "Unknown" to preserve dataset size, but this reduces the ability  
-   to confidently compare waiting times across referral pathways.
-
-2. _Incomplete Satisfaction Data_
-
-   The Patient Satisfaction Score variable had 6,699 missing values.  
-   Although imputed, the absence of true responses weakens any conclusions about  
-   patient experience or satisfaction-related insights.
-
-3. _Age Distribution Bias_
-
-   No patients below one year of age appeared in the dataset, suggesting  
-   a potential sampling gap. This reduces applicability of findings to paediatric populations  
-   or emergency use cases involving infants.
-
-4. _Lack of Triage Severity or Clinical Priority Indicator_
-
-   The dataset does not include information about patient acuity or triage level,  
-   which is a critical driver of queuing and treatment priority.  
-   This omission prevents deeper causal analysis into whether waiting time differences  
-   are driven by medical urgency rather than demographic or timing effects.
-
-5. _Imbalanced Referral Patterns and Limited Satisfaction Signal_
-
-   The dominance of walk-in / unknown referral cases combined with weak satisfaction data  
-   limits the strength of comparisons between referral-based and outcome-based groups.  
-   While imputations preserved volume, they may distort relationships between referral behaviour,  
-   perceived quality, and actual waiting experience.
-
-6. _Unknown Imputation Impact_
-
-   Imputation strategies (e.g., filling "Unknown" values) retained dataset completeness  
-   but may reduce model accuracy or mask naturally occurring patterns—especially when comparing  
-   waiting time behaviour or satisfaction trends among different patient pathways.
-
-## 📌 Ethical Considerations
-
-- All personal patient identifiers removed.
-- Results communicated cautiously to avoid clinical bias.
-- Dataset handled only for analytical—not diagnostic—purposes
-
-## 4. Modelling & Prediction
-
-### Objective
-
-The goal of this section was to build a simple baseline regression model that
-predicts *patient waiting time (in minutes)* using a few key features:
 
 - Patient Age  
 - Patient Gender  
@@ -290,6 +214,133 @@ waiting times**:
 These plots are included in the notebook and can be referenced in the report.
 
 ![readme](https://github.com/user-attachments/assets/569d7860-e7bd-4cee-bf6d-1f8a8c3d498e)
+
+```python
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+```
+
+### 🔹 Strategies Used to Overcome Them
+
+To ensure compatibility with all scikit-learn versions, I replaced the above code with a manual RMSE calculation:
+
+```python
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+```
+
+## What I Learned
+
+- Different library versions may support different parameters.  
+- Reading the exact error message helps identify the root cause.  
+- Understanding that RMSE = sqrt(MSE) allowed me to implement a manual fix.  
+- Debugging is a normal and important part of the machine learning workflow.
+
+---
+
+## Deployment
+
+The project’s interactive dashboard was deployed using *Power BI Service*.
+
+You can access the live Power BI report through the following link:
+
+🔗 **[ER Waiting Time Dashboard](https://app.powerbi.com/groups/me/reports/f5137f9e-f640-47c1-9e17-209d69b634de/f9ede44134280a65ce97?experience=power-bi)**
+
+The dashboard is published to the user workspace and includes all report pages, visuals, and insights created as part of the project.
+
+---
+
+## Dataset Limitations
+
+1. _High Missingness in Referral Source_
+
+   The Department Referral field contained 5,400 missing records.  
+   These were imputed with "Unknown" to preserve dataset size, but this reduces the ability  
+   to confidently compare waiting times across referral pathways.
+
+2. _Incomplete Satisfaction Data_
+
+   The Patient Satisfaction Score variable had 6,699 missing values.  
+   Although imputed, the absence of true responses weakens conclusions about  
+   patient experience or satisfaction-related insights.
+
+3. _Age Distribution Bias_
+
+   No patients below one year of age appeared in the dataset, suggesting a sampling gap.  
+   This reduces applicability of findings to paediatric cases.
+
+4. _Lack of Triage Severity or Clinical Priority Indicator_
+
+   Missing acuity/triage levels prevents deeper causal interpretation.
+
+5. _Imbalanced Referral Patterns_
+
+   Many walk-in/unknown referrals weaken comparative analysis between referral groups.
+
+6. _Unknown Imputation Impact_
+
+   Filling "Unknown" preserves completeness but may distort natural behaviour patterns.
+
+---
+
+## 📌 Ethical Considerations
+
+- All personal patient identifiers removed.  
+- Results interpreted cautiously to avoid clinical bias.  
+- Dataset used strictly for analytical — not diagnostic — purposes.
+
+---
+
+## 4. Modelling & Prediction
+
+### Objective
+
+Build a baseline regression model to predict  
+*patient waiting time (minutes)* using:
+
+- Age  
+- Gender  
+- Department Referral  
+- Admission Flag  
+
+### Modelling Approach
+
+Pipeline included preprocessing + model:
+
+- **Preprocessing**
+  - Numerical features scaled (StandardScaler)  
+  - Categorical features encoded (OneHotEncoder)
+- **Model**
+  - RandomForestRegressor(n_estimators=200, random_state=42)
+
+Train/test split: **80% / 20%**
+
+---
+
+### Evaluation Metrics
+
+- *Mean Absolute Error (MAE): ~13.47 minutes*  
+- *Root Mean Squared Error (RMSE): ~15.96 minutes*  
+- *R² Score: -0.188*  
+
+**Interpretation**
+
+- Model error ≈ 13–16 mins  
+- Negative R² → model performs worse than predicting the mean  
+- Waiting time variance likely caused by external operational factors  
+
+---
+
+### Visualising Model Performance
+
+Plotted **Actual vs Predicted** waiting times.
+
+- Points close to *y = x* → good predictions  
+- Wide scatter → model struggles to capture pattern  
+
+Plots included in notebook.
+
+![readme](https://github.com/user-attachments/assets/569d7860-e7bd-4cee-bf6d-1f8a8c3d498e)
+
 
 
 
