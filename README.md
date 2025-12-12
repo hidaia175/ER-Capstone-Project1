@@ -266,7 +266,7 @@ The project’s interactive dashboard was deployed using _Power BI Service_.
 
 You can access the live Power BI report through the following link:
 
-🔗 **[ER Waiting Time Dashboard](https://app.powerbi.com/groups/me/reports/f5137f9e-f640-47c1-9e17-209d69b634de/f9ede44134280a65ce97?experience=power-bi)**
+https://app.powerbi.com/view?r=eyJrIjoiNTdmMmYyMGUtNDFjNS00NTU3LWI1ZjAtYzI3ZWI4ODA3YTdhIiwidCI6ImMyMzNjMDcyLTEzNWItNDMxZC1hZjU5LTM1ZTA1YmFiZjk0MSIsImMiOjh9
 
 The dashboard is published to the user workspace and includes all report pages, visuals, and insights created as part of the project.
 
