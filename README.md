@@ -1,5 +1,5 @@
 <h2 align="center">Emergency Room Analytics Project</h2>
-# ![ER room](https://github.com/user-attachments/assets/66669aa7-820d-48c9-bf6f-df51de3f6313)
+![ER room](https://github.com/user-attachments/assets/66669aa7-820d-48c9-bf6f-df51de3f6313)
 
 
 ## Dataset Content
