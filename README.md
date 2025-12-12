@@ -1,4 +1,6 @@
-# 📌 Emergency Room Analytics Project
+# ![ER room](https://github.com/user-attachments/assets/66669aa7-820d-48c9-bf6f-df51de3f6313)
+
+📌 Emergency Room Analytics Project
 
 ## Dataset Content
 
@@ -35,10 +37,6 @@ The objective is to move beyond descriptive insights and provide a forward-looki
 - Compare walk-in versus referred patient behaviors.
 - Support hospital planning using analytical insights.
 
-### Additional Business Requirement
-
-- Provide a binary machine learning model that predicts whether a patient is likely to be admitted or discharged (1 vs 0), based on features available at arrival.  
-  This supports planning for bed availability, triage prioritization, and operational readiness in the Emergency Room.
 
 ## 📌 Hypotheses & Validation Approach
 
@@ -61,6 +59,11 @@ _Validation:_ monthly trend line analysis.
 
 Admitted patients wait longer than discharged patients.  
 _Validation:_ violin plot comparing outcome groups
+
+## Overall Recommendations
+- Improve triage processes for older patients to reduce waiting times.
+- Optimize staffing levels during peak seasonal demand.
+- Review referral pathways to improve efficiency for walk-in cases.
 
 ## 📌 Project Plan
 
